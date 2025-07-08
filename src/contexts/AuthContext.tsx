@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState, useImperativeHandle } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 
 interface AuthContextType {
@@ -24,8 +24,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(!!user);
 
   const login = (username: string, password: string) => {
-    // Credenciais de teste
-    if (username === 'Leozin' && password === 'sejamax') {
+    // Usuários de teste
+    const testUsers = [
+      { username: 'Leozin', password: 'sejamax' },
+      { username: 'Rhulio', password: 'malinodigital' }
+    ];
+
+    const validUser = testUsers.find(
+      u => u.username === username && u.password === password
+    );
+
+    if (validUser) {
       setUser(username);
       setIsAuthenticated(true);
       return true;

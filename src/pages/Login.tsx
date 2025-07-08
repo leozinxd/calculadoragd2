@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     const success = login(username, password);
     if (!success) {
-      setError('Credenciais inválidas. Tente: Leozin / sejamax');
+      setError('Credenciais inválidas. Verifique seu usuário e senha.');
     }
   };
 
@@ -90,14 +90,6 @@ const Login = () => {
               Entrar
             </Button>
           </form>
-
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-md">
-            <p className="text-sm text-blue-700 dark:text-blue-300 text-center">
-              <strong>Credenciais de teste:</strong><br />
-              Usuário: Leozin<br />
-              Senha: sejamax
-            </p>
-          </div>
         </CardContent>
       </Card>
     </div>
